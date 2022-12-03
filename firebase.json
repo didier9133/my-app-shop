@@ -11,6 +11,14 @@
         "source": "**",
         "destination": "/index.html"
       }
-    ]
+    ],
+    "functions": {
+      "source": ".",
+      "predeploy": [
+        "npm --prefix \"$PROJECT_DIR\" install --legacy-peer-deps",
+        "npm --prefix \"$PROJECT_DIR\" run build --legacy-peer-deps"
+      ],
+      "runtime": "nodejs14"
+    }
   }
 }
