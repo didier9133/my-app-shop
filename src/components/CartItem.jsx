@@ -23,7 +23,7 @@ const CartItem = ({product}) => {
             <div className="Checkout-item">
                 <div className="Checkout-element">
                     <span>Catidad: <span>{product.counter}</span></span>
-                    <span>{`Precio und: $${product.price}`}</span>
+                    <span>{`Precio unidad: $${product.price}`}</span>
                     <span>{`Monto: $${monto()}`}</span>
                 </div>
                 <button className='Checkout-item button' onClick={()=>handlerClick(product)} type='button'>
