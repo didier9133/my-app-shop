@@ -11,6 +11,8 @@ jobs:
         run:  npm install --legacy-peer-deps
       - name: Build
         run: npm run build
+          env:
+            REACT_APP_CLIENT_ID: ${{ secrets.REACT_APP_CLIENT_ID }}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
@@ -31,7 +33,7 @@ jobs:
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: deploy --only hosting:[FIREBASE_TOKEN]
+          args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          REACT_APP_CLIENT_ID: ${{ secrets.REACT_APP_CLIENT_ID }}
+         
