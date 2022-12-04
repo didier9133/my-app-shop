@@ -13,6 +13,7 @@ jobs:
         run: npm run build
         env:
           REACT_APP_CLIENT_ID: ${{ secrets.REACT_APP_CLIENT_ID }}
+          REACT_APP_GOOGLE_KEY: ${{ secrets.REACT_APP_GOOGLE_KEY }}
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
