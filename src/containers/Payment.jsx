@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import { PayPalButton } from "react-paypal-button-v2";
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
@@ -30,27 +31,32 @@ const Payment = () => {
     }
 
     return (
-        <div className="Payment">
-          <div className="Payment-content">
-            {/* <h3>Resumen del pedido:</h3>
-            
-            {cart.map(product=>
-              <div className="Payment item">
-                <h4>{product.title}</h4>
-                <span>{product.price}</span>
-                <span>{product.counter}</span>
-              </div>
-            )} */}
-            
-            <PayPalButton
-              options={paypalOptions}
-              amount={handlersum(cart)}
-              onSuccess={(detail,data) => handlepaymentSuccess(detail,data)}
+        <>
+          <Helmet>
+            <title>Payment | Platzi Conf Merch</title>
+          </Helmet>
+          <div className="Payment">
+            <div className="Payment-content">
+              {/* <h3>Resumen del pedido:</h3>
               
-            />
+              {cart.map(product=>
+                <div className="Payment item">
+                  <h4>{product.title}</h4>
+                  <span>{product.price}</span>
+                  <span>{product.counter}</span>
+                </div>
+              )} */}
+              
+              <PayPalButton
+                options={paypalOptions}
+                amount={handlersum(cart)}
+                onSuccess={(detail,data) => handlepaymentSuccess(detail,data)}
+                
+              />
+            </div>
+            <div></div>
           </div>
-          <div></div>
-        </div>
+        </>
       );
 }
  

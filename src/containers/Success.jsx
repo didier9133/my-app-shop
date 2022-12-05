@@ -3,6 +3,7 @@ import '../styles/Success.css';
 import Map from '../components/Map';
 import { AppContext } from '../context/AppContext';
 import getGoogleAddress from '../service/getGoogleAddress';
+import { Helmet } from 'react-helmet';
 
 const Success = () => {
   const[map,setMap]=useState()
@@ -25,17 +26,22 @@ const Success = () => {
        // eslint-disable-next-line
   },[])
 
-  return (    
-    loading && 
-      <div className="Succes">
-        <div className="Success-content">
-          <h2>{name}, Gracias por tu compra</h2>
-          <span>Tu pedido llegara en 3 dias a tu dirección:</span>
-          <div className="Success-map">
-            <Map location={map.location} />
+  return (
+    <>
+      <Helmet>
+        <title>Success | Platzi Conf Merch</title>
+      </Helmet>    
+      {loading && 
+        (<div className="Succes">
+          <div className="Success-content">
+            <h2>{name}, Gracias por tu compra</h2>
+            <span>Tu pedido llegara en 3 dias a tu dirección:</span>
+            <div className="Success-map">
+              <Map location={map.location} />
+            </div>
           </div>
-        </div>
-      </div>
+        </div>)}
+    </>  
   );
 }
  

@@ -1,8 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const NotFound = () => {
     return ( 
-        <h1>NotFound</h1>
+        <>
+            <Helmet>
+                <title>404 | Not Found</title>
+            </Helmet>
+            <h1>NotFound</h1>
+        </>
      );
 }
  

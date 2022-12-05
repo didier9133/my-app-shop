@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import CartItem from '../components/CartItem';
 import { AppContext } from '../context/AppContext';
 import '../styles/Checkout.css'
+import { Helmet } from 'react-helmet';
 
 const Checkout = () => {
     const{state,handlersum}=useContext(AppContext)
@@ -12,11 +13,15 @@ const Checkout = () => {
  
 
     return ( 
-       <div className="Checkout">
+       <>
+        <Helmet>
+            <title>List Of Items | Platzi Conf Merch</title>
+        </Helmet>
+        <div className="Checkout">
             <div className="Checkout-content">
                 <h3>Lista de Pedidos</h3>
                 {cart.map(product=>{
-                    return <CartItem product={product} ></CartItem>   
+                    return <CartItem key={product.id} product={product} ></CartItem>   
            
                 })}
             </div>
@@ -29,9 +34,9 @@ const Checkout = () => {
                     </NavLink>
                 </div>
             )}
-
+        </div>
+       </> 
        
-       </div>
     );
 }
  
