@@ -6,6 +6,6 @@ test('should render Footer',()=>{
     render(
         <Footer /> 
     )
-    const titleEl=screen.getByText(/PlatziConfdhfj/i)
+    const titleEl=screen.getByText(/PlatziConf/i)
     expect(titleEl).toBeInTheDocument()
 })
